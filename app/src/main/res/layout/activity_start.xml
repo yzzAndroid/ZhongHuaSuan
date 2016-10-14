@@ -5,6 +5,4 @@
     android:layout_height="match_parent"
     android:background="@mipmap/guild_1"
     tools:context="com.qianfeng.yyz.zhonghuasuan.welcome.view.StartActivity">
-
-
 </RelativeLayout>

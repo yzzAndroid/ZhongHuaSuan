@@ -11,7 +11,7 @@ public interface ICheckIsFirstUseApp {
      * @param context
      * @return
      */
-    boolean isFirstUse(Context context);
+    void isFirstUse(Context context,ReadShardPreferenceCallback callback);
 
     /**
      * 保存登陆状态
@@ -24,5 +24,5 @@ public interface ICheckIsFirstUseApp {
      * 检查登陆状态
      * @param context
      */
-    boolean checkLoginState(Context context);
+    void checkLoginState(Context context);
 }

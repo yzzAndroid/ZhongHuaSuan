@@ -2,6 +2,9 @@ package com.qianfeng.yyz.zhonghuasuan.welcome.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Handler;
+
+import com.qianfeng.yyz.zhonghuasuan.apublic.MyApplication;
 
 /**
  * Created by Administrator on 2016/10/14 0014.
@@ -11,11 +14,16 @@ public class CheckIsFirstUseAppImpl implements ICheckIsFirstUseApp {
     public static final String USE_FIRST = "use_first";
     public static final String USER_INFO = "user_info";
     public static final String USER_LOGIN = "user_login";
+
     @Override
-    public boolean isFirstUse(Context context) {
+    public void isFirstUse(Context context,ReadShardPreferenceCallback callback) {
         SharedPreferences preferences = context.getSharedPreferences(USE_STATE,Context.MODE_PRIVATE);
         boolean state  = preferences.getBoolean(USE_FIRST,true);
-        return state;
+        if (state){
+            callback.isTrue();
+        }else {
+            callback.isFalse();
+        }
     }
 
     @Override
@@ -25,8 +33,9 @@ public class CheckIsFirstUseAppImpl implements ICheckIsFirstUseApp {
     }
 
     @Override
-    public boolean checkLoginState(Context context) {
+    public void checkLoginState(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(USER_INFO,Context.MODE_PRIVATE);
-        return preferences.getBoolean(USER_LOGIN,false);
+        boolean isLogin = preferences.getBoolean(USER_LOGIN,false);
+        MyApplication.getInstance().setLogin(isLogin);
     }
 }

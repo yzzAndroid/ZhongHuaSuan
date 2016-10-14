@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ZhongHuaSuan</string>
+    <string name="welcome_enter_btn">立即进入</string>
 </resources>

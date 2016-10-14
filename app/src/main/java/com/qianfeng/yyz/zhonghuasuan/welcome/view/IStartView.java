@@ -8,4 +8,5 @@ public interface IStartView {
     void init();
     void firstUse();
     void resetWindowSize();
+    void secondUse();
 }
