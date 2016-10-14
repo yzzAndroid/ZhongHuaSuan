@@ -1,7 +1,9 @@
-package com.qianfeng.yyz.zhonghuasuan;
+package com.qianfeng.yyz.zhonghuasuan.welcome.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.qianfeng.yyz.zhonghuasuan.R;
 
 public class StartActivity extends AppCompatActivity {
 
