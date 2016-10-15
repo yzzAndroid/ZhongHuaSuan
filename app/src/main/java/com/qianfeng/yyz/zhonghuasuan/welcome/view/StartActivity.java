@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.qianfeng.yyz.zhonghuasuan.R;
+import com.qianfeng.yyz.zhonghuasuan.home.view.HomeActivity;
 import com.qianfeng.yyz.zhonghuasuan.welcome.presenter.StartPresenterImpl;
 
 public class StartActivity extends AppCompatActivity implements IStartView{
@@ -58,5 +59,12 @@ public class StartActivity extends AppCompatActivity implements IStartView{
     @Override
     public void secondUse() {
         //启动主页
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(StartActivity.this,HomeActivity.class);
+                startActivity(intent);
+            }
+        },3000);
     }
 }

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ZhongHuaSuan</string>
     <string name="welcome_enter_btn">立即进入</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">首页</string>
+    <string name="newest">最新</string>
+    <string name="search">搜索</string>
+    <string name="mine">我的</string>
 </resources>

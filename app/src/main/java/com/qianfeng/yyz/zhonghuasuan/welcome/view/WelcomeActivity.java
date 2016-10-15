@@ -1,5 +1,6 @@
 package com.qianfeng.yyz.zhonghuasuan.welcome.view;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.qianfeng.yyz.zhonghuasuan.R;
+import com.qianfeng.yyz.zhonghuasuan.home.view.HomeActivity;
 import com.qianfeng.yyz.zhonghuasuan.welcome.presenter.StartPresenterImpl;
 
 import java.util.ArrayList;
@@ -50,6 +52,9 @@ public class WelcomeActivity extends AppCompatActivity implements IwelcomeView{
     @Override
     public void startUse() {
         //进入主页
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+
     }
 
     @Override
@@ -160,6 +165,8 @@ public class WelcomeActivity extends AppCompatActivity implements IwelcomeView{
     //点击进入按钮，第一次进入程序
     public void startUse(View view) {
         StartPresenterImpl.getInstance().enterHome(this);
+        //跳转
+        startUse();
     }
 
     /**
