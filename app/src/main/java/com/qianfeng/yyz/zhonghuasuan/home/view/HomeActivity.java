@@ -52,6 +52,9 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivity{
         mSearchFragment = new SearchFragmentFragment();
         mMineFragment = new MineFragment();
         //初始化
+        //首先要将home加到容器
+        getSupportFragmentManager().beginTransaction().add(R.id.home_container,mHomeFragment).commit();
+        //设置初始值
         mCurrentRadioButton = home_rb;
         mCurrentFragment = mHomeFragment;
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -88,10 +91,10 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivity{
     //控制碎片切换
     public void changeFragment(Fragment now){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.hide(mCurrentFragment);
         if (!now.isAdded()){
             transaction.add(R.id.home_container,now);
         }
-        transaction.hide(mCurrentFragment);
         transaction.show(now);
         transaction.commit();
         mCurrentFragment = now;

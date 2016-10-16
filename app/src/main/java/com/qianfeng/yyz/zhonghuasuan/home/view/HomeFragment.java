@@ -7,14 +7,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshListView2;
 import com.qianfeng.yyz.zhonghuasuan.R;
+import com.qianfeng.yyz.zhonghuasuan.home.model.HomeModelImpl;
+import com.qianfeng.yyz.zhonghuasuan.home.model.HttpServiceAppIndex;
+import com.qianfeng.yyz.zhonghuasuan.home.presenter.HomePresenterImpl;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements IHomeFragment{
 
 
+    @BindView(R.id.home_pullListView)
+    PullToRefreshListView2 mPullToRefreshListView;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -23,8 +34,11 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        HomePresenterImpl.getInstance().enterHome(this);
+        ButterKnife.bind(this,view);
+//        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+//        mPullToRefreshListView.getLoadingLayoutProxy().setLoadingDrawable(getResources().getDrawable(R.mipmap.index_category));
+        return view;
     }
-
 }
