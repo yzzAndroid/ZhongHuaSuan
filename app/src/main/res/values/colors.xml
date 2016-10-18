@@ -8,4 +8,6 @@
     <color name="white">#ffffff</color>
     <color name="default_color">#838B8B</color>
     <color name="home_bottom_diver">#EDEDED</color>
+    <color name="home_navigation_top">#D4D4D4</color>
+    <color name="dark">#000000</color>
 </resources>

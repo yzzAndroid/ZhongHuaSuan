@@ -8,4 +8,41 @@
     <string name="newest">最新</string>
     <string name="search">搜索</string>
     <string name="mine">我的</string>
+    <string name="loading">努力加载中...</string>
+    <string name="home_help">去淘宝,天猫京东购买，回众划算拿返现50%以上</string>
+    <string name="recommend_text">精品推荐：</string>
+    <string name="price_back">返现</string>
+    <string name="home_list_line">/</string>
+    <string name="home_list_fen">份</string>
+    <string name="home_item_btn_text">开抢中</string>
+    <string name="cancel">取消</string>
+    <string name="recommend_default_f">潮流穿搭</string>
+    <string name="recommend_l">生活百货</string>
+    <string name="recommend_m">母婴用品</string>
+    <string name="recommend_like">猜你喜欢</string>
+
+
+    <!--导航栏的数组-->
+    <string-array name="navigation_text_array">
+        <item>上新预告</item>
+        <item>名品特卖</item>
+        <item>一站成名</item>
+        <item>商品总汇</item>
+        <item>类目分类</item>
+        <item>众夺宝</item>
+    </string-array>
+
+    <!--&lt;!&ndash;精品推荐数组&ndash;&gt;-->
+    <!--<string-array name="recommend_array">-->
+        <!--<item>潮流穿搭</item>-->
+        <!--<item>生活百货</item>-->
+        <!--<item>母婴用品</item>-->
+        <!--<item>猜你喜欢</item>-->
+    <!--</string-array>-->
+
+    <!--图片名和文字名-->
+    <string-array name="text_img">
+        <item>img</item>
+        <item>text</item>
+    </string-array>
 </resources>
