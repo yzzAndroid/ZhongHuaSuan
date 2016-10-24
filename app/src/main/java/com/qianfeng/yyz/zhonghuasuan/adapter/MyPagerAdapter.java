@@ -1,10 +1,12 @@
 package com.qianfeng.yyz.zhonghuasuan.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.qianfeng.yyz.zhonghuasuan.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,6 +23,14 @@ public class MyPagerAdapter extends android.support.v4.view.PagerAdapter {
     public MyPagerAdapter(Context context, List<ImageView> imageViewList, List<String> stringList) {
         this.context = context;
         this.imageViewList = imageViewList;
+        this.stringList = stringList;
+    }
+
+    public void setImageViewList(List<ImageView> imageViewList) {
+        this.imageViewList = imageViewList;
+    }
+
+    public void setStringList(List<String> stringList) {
         this.stringList = stringList;
     }
 
@@ -43,7 +53,11 @@ public class MyPagerAdapter extends android.support.v4.view.PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         imageViewList.get(position).setScaleType(ImageView.ScaleType.CENTER_CROP);
-        Picasso.with(context).load(stringList.get(position)).into(imageViewList.get(position));
+        Picasso.with(context).load(stringList.get(position))
+                .placeholder(R.mipmap.default_image)
+                .into(imageViewList.get(position));
+
+        Log.e("=============","============"+position+"====="+stringList.get(position));
         container.addView(imageViewList.get(position));
         return imageViewList.get(position);
     }

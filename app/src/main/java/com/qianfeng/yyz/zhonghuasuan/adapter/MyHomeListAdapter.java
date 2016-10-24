@@ -5,6 +5,7 @@ package com.qianfeng.yyz.zhonghuasuan.adapter;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.qianfeng.yyz.zhonghuasuan.R;
+import com.qianfeng.yyz.zhonghuasuan.apublic.MyApi;
 import com.qianfeng.yyz.zhonghuasuan.bean.AppIndexBean;
+import com.qianfeng.yyz.zhonghuasuan.bean.AppIndexGussLikeBean;
+import com.qianfeng.yyz.zhonghuasuan.detail.view.DetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.math.BigDecimal;
@@ -29,20 +33,26 @@ import butterknife.ButterKnife;
 public class MyHomeListAdapter extends BaseAdapter {
 
     private AppIndexBean mAppIndexBean;
+    private AppIndexGussLikeBean mAppIndexGussLikeBean;
     private  int sizeF;
     private int sizeL;
     private int sizeM;
+    private int sizeLike;
     public static final int F = 1;
     public static final int L = 2;
     public static final int M = 3;
+    public static final int LIKE = 4;
     private int flag = F;
     public static final String MONEY = "￥";
     private Context context;
 
-    public MyHomeListAdapter(AppIndexBean mAppIndexBean, Context context) {
-        this.mAppIndexBean = mAppIndexBean;
+    public MyHomeListAdapter(Context context) {
         this.context = context;
-        if (null==mAppIndexBean){
+    }
+
+    public void setmAppIndexBean(AppIndexBean mAppIndexBean) {
+        this.mAppIndexBean = mAppIndexBean;
+        if (null == mAppIndexBean){
             return;
         }
         sizeF = mAppIndexBean.getData().getFashion_goods().size();
@@ -50,17 +60,28 @@ public class MyHomeListAdapter extends BaseAdapter {
         sizeM = mAppIndexBean.getData().getMombaby_goods().size();
     }
 
-    public void setmAppIndexBean(AppIndexBean mAppIndexBean) {
-        this.mAppIndexBean = mAppIndexBean;
+    public void setmAppIndexGussLikeBean(AppIndexGussLikeBean mAppIndexGussLikeBean) {
+        this.mAppIndexGussLikeBean = mAppIndexGussLikeBean;
+        if (null == mAppIndexGussLikeBean ||null==mAppIndexGussLikeBean.getData()){
+            sizeLike = 0;
+            return;
+        }
+        sizeLike = mAppIndexGussLikeBean.getData().size();
     }
 
     @Override
     public int getCount() {
         if (null==mAppIndexBean){
             return 0;
+        }else if (null == mAppIndexGussLikeBean){
+            return mAppIndexBean.getData().getFashion_goods().size()+mAppIndexBean.getData().getLife_goods().size()+
+                    mAppIndexBean.getData().getMombaby_goods().size();
+        }else {
+
+            return mAppIndexBean.getData().getFashion_goods().size()+mAppIndexBean.getData().getLife_goods().size()+
+                    mAppIndexBean.getData().getMombaby_goods().size()+mAppIndexGussLikeBean.getData().size();
         }
-        return mAppIndexBean.getData().getFashion_goods().size()+mAppIndexBean.getData().getLife_goods().size()+
-                mAppIndexBean.getData().getMombaby_goods().size();
+
     }
 
     @Override
@@ -77,7 +98,10 @@ public class MyHomeListAdapter extends BaseAdapter {
         }
         else if (position<sizeF+sizeL+sizeM&&position>sizeL+sizeF-1){
             return mAppIndexBean.getData().getMombaby_goods().get(position-sizeF-sizeL);
+        }else if (position<sizeF+sizeL+sizeM+sizeLike&&position>sizeL+sizeF+sizeM-1){
+            return mAppIndexGussLikeBean.getData().get(position);
         }
+
         return null;
     }
 
@@ -97,6 +121,9 @@ public class MyHomeListAdapter extends BaseAdapter {
         else if (position<sizeF+sizeL+sizeM&&position>sizeL+sizeF-1){
             flag = M;
         }
+        else if (position<sizeF+sizeL+sizeM+sizeLike&&position>sizeL+sizeF+sizeM-1){
+            flag = LIKE;
+        }
 
         ViewHolder holder;
         if (null==convertView){
@@ -107,20 +134,23 @@ public class MyHomeListAdapter extends BaseAdapter {
         }
         switch (flag){
             case F:
-                initF(holder,position);
+                initF(holder,position,convertView);
                 break;
             case L:
-                initL(holder,position);
+                initL(holder,position,convertView);
                 break;
             case M:
-                initM(holder,position);
+                initM(holder,position,convertView);
+                break;
+            case LIKE:
+                initLIke(holder,position,convertView);
                 break;
         }
         return convertView;
     }
 
-    private void initM(ViewHolder holder,int position1) {
-        int position = position1 - sizeF - sizeL;
+    private void initM(ViewHolder holder,int position1,View convertView) {
+        final int position = position1 - sizeF - sizeL;
         Picasso.with(context).load(mAppIndexBean.getData().getMombaby_goods().get(position).getImg())
                 .placeholder(R.mipmap.default_image).into(holder.imageView);
         holder.name.setText(mAppIndexBean.getData().getMombaby_goods().get(position).getTitle());
@@ -134,10 +164,19 @@ public class MyHomeListAdapter extends BaseAdapter {
         holder.numPart.setText(mAppIndexBean.getData().getMombaby_goods().get(position).getRemain_quantity());
         holder.num.setText(mAppIndexBean.getData().getMombaby_goods().get(position).getQuantity());
 
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra(MyApi.GID,mAppIndexBean.getData().getMombaby_goods().get(position).getGid());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
-    private void initL(ViewHolder holder,int position1) {
-        int position = position1-sizeF;
+    private void initL(ViewHolder holder,int position1,View convertView) {
+        final int position = position1-sizeF;
         Picasso.with(context).load(mAppIndexBean.getData().getLife_goods().get(position).getImg())
                 .placeholder(R.mipmap.default_image).into(holder.imageView);
         holder.name.setText(mAppIndexBean.getData().getLife_goods().get(position).getTitle());
@@ -150,9 +189,17 @@ public class MyHomeListAdapter extends BaseAdapter {
         holder.priceOrigin.setText(MONEY+String.valueOf(priceOrigin));
         holder.numPart.setText(mAppIndexBean.getData().getLife_goods().get(position).getRemain_quantity());
         holder.num.setText(mAppIndexBean.getData().getLife_goods().get(position).getQuantity());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra(MyApi.GID,mAppIndexBean.getData().getLife_goods().get(position).getGid());
+                context.startActivity(intent);
+            }
+        });
     }
 
-    private void initF(ViewHolder holder,int position) {
+    private void initF(ViewHolder holder, final int position, View convertView) {
         Picasso.with(context).load(mAppIndexBean.getData().getFashion_goods().get(position).getImg())
                 .placeholder(R.mipmap.default_image).into(holder.imageView);
         holder.name.setText(mAppIndexBean.getData().getFashion_goods().get(position).getTitle());
@@ -165,6 +212,39 @@ public class MyHomeListAdapter extends BaseAdapter {
         holder.priceOrigin.setText(MONEY+String.valueOf(priceOrigin));
         holder.numPart.setText(mAppIndexBean.getData().getFashion_goods().get(position).getRemain_quantity());
         holder.num.setText(mAppIndexBean.getData().getFashion_goods().get(position).getQuantity());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra(MyApi.GID,mAppIndexBean.getData().getFashion_goods().get(position).getGid());
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    private void initLIke(ViewHolder holder,int position2,View convertView){
+        final int position = position2-sizeF-sizeL-sizeM;
+        Picasso.with(context).load(mAppIndexGussLikeBean.getData().get(position).getImg())
+                .placeholder(R.mipmap.default_image).into(holder.imageView);
+        holder.name.setText(mAppIndexGussLikeBean.getData().get(position).getTitle());
+        Float price = Float.valueOf(mAppIndexGussLikeBean.getData().get(position).getCost_price());
+        Float priceOrigin = Float.valueOf(mAppIndexGussLikeBean.getData().get(position).getPrice());
+        BigDecimal bigDecimal1 = new BigDecimal(price.toString());
+        BigDecimal bigDecimal2 = new BigDecimal(priceOrigin.toString());
+        holder.price.setText(String.valueOf(price));
+        holder.priceBack.setText(MONEY+String.valueOf(bigDecimal2.subtract(bigDecimal1)));
+        holder.priceOrigin.setText(MONEY+String.valueOf(priceOrigin));
+        holder.numPart.setText(String.valueOf(mAppIndexGussLikeBean.getData().get(position).getRemain_quantity()));
+        holder.num.setText(String.valueOf(mAppIndexGussLikeBean.getData().get(position).getQuantity()));
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra(MyApi.GID,mAppIndexGussLikeBean.getData().get(position).getGid());
+                context.startActivity(intent);
+            }
+        });
     }
 
 

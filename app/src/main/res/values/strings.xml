@@ -20,6 +20,60 @@
     <string name="recommend_l">生活百货</string>
     <string name="recommend_m">母婴用品</string>
     <string name="recommend_like">猜你喜欢</string>
+    <string name="list_mistake">断网了？检查下网络，再试试吧~</string>
+    <string name="try_agine">重新加载</string>
+    <string name="today">今日追加</string>
+    <string name="tomorrow">明日预告</string>
+    <string name="count_down">距开抢：</string>
+    <string name="tomorrow_time">明日</string>
+    <string name="famous">名品特卖</string>
+    <string name="one">一站成名</string>
+    <string name="goods_num">商品总汇</string>
+    <string name="goods_classify">类目分类</string>
+    <string name="indiana">众夺宝</string>
+    <string name="sort_default">智能排序</string>
+    <string name="sort_newest">最新发布</string>
+    <string name="sort_hotest">人气最高</string>
+    <string name="sort_price">价格</string>
+    <string name="sort_count">类目</string>
+    <string name="search_like">寻找你喜欢的宝贝</string>
+    <string name="search_now">当前搜索:</string>
+    <string name="fenshu">份数</string>
+    <string name="check_do">查看抢购流程，抢购更快！</string>
+    <string name="details">活动详情</string>
+    <string name="tishi">温馨提示</string>
+    <string name="more">上拉加载活动详情</string>
+
+
+    <!--search mine-->
+
+    <string name="search_hint">搜索商品</string>
+    <string name="search_tv_search">搜索</string>
+    <string name="search_tv_search_query">热门搜索</string>
+    <string name="search_tv_recent_query">最近搜索</string>
+    <string name="mine_tv_private_center">个人中心</string>
+    <string name="mine_tv_message">消息</string>
+    <string name="mine_tv_login">点击头像登陆</string>
+    <string name="mine_tv_back_money">退款金额（互联支付）：[查看可用余额]</string>
+    <string name="mine_tv_get_money_record">提现记录 >></string>
+    <string name="mine_tv_all_order">全部订单 </string>
+    <string name="mine_tv_look_all_order">查看全部订单 >></string>
+    <string name="search_tv_clear_history">清空搜索历史</string>
+    <string name="mine_rbtn_write">待填写订单</string>
+    <string name="mine_rbtn_backmoney">待返现订单</string>
+    <string name="mine_rbtn_ordererror">订单有误</string>
+    <string name="mine_rbtn_appeal">申诉中</string>
+    <string name="mine_tv_backmoney">我要提现(互联支付)</string>
+    <string name="mine_tv_collect">我的收藏</string>
+    <string name="mine_tv_traces">我的足迹</string>
+    <string name="mine_tv_appeal_record">申诉记录</string>
+    <string name="mine_tv_invite">邀请好友</string>
+    <string name="mine_tv_setting">设置      (手机认证，修改密码)</string>
+    <string name="mine_tv_known">抢购须知      (查看抢购流程，抢购更快)</string>
+    <string name="mine_tv_order_query">账单查询</string>
+    <string name="mine_tv_help">帮助与反馈</string>
+    <string name="mine_tv_qq">客服QQ：800190688</string>
+
 
 
     <!--导航栏的数组-->
@@ -34,10 +88,10 @@
 
     <!--&lt;!&ndash;精品推荐数组&ndash;&gt;-->
     <!--<string-array name="recommend_array">-->
-        <!--<item>潮流穿搭</item>-->
-        <!--<item>生活百货</item>-->
-        <!--<item>母婴用品</item>-->
-        <!--<item>猜你喜欢</item>-->
+    <!--<item>潮流穿搭</item>-->
+    <!--<item>生活百货</item>-->
+    <!--<item>母婴用品</item>-->
+    <!--<item>猜你喜欢</item>-->
     <!--</string-array>-->
 
     <!--图片名和文字名-->

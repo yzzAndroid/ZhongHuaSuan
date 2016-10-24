@@ -67,6 +67,7 @@ public class ViewPagerAutoPlay {
         ViewPagerAutoPlay.fragment = fragment;
         ViewPagerAutoPlay.size = path.size();
         Log.e("===","==="+size);
+        point.removeAllViews();
         for (int i = 0;i<size-1;i++){
             ImageView imageView = new ImageView(context);
             imageView.setPadding(10,0,10,0);
@@ -101,6 +102,7 @@ public class ViewPagerAutoPlay {
 
     private static void autoSwitch(){
         int now = viewPager.getCurrentItem();
+        Log.e("===========","======当前位置====="+now);
         if (now==size-2){
             viewPager.setCurrentItem(0,false);
         }else {
@@ -140,6 +142,20 @@ public class ViewPagerAutoPlay {
 
     }
 
-
+    public static void refresh(ViewGroup point,List<String> path,Context context){
+        ViewPagerAutoPlay.size = path.size();
+        Log.e("===","==="+size);
+        point.removeAllViews();
+        for (int i = 0;i<size-1;i++){
+            ImageView imageView = new ImageView(context);
+            imageView.setPadding(10,0,10,0);
+            point.addView(imageView);
+            if (i==0){
+                imageView.setImageResource(R.drawable.point_shape_select);
+            }else {
+                imageView.setImageResource(R.drawable.point_shape_unselect);
+            }
+        }
+    }
 }
 

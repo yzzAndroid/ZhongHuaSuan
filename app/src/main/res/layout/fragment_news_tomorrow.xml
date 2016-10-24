@@ -1,0 +1,67 @@
+<com.qianfeng.yyz.zhonghuasuan.desinview.MyRefrechView2 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="match_parent"
+    android:id="@+id/tomorrow_refresh"
+    tools:context="com.qianfeng.yyz.zhonghuasuan.home.view.NewsNoticeTodayFragment">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <RelativeLayout
+            android:background="@color/count_down_bg"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/tomorrow_time_img"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/timepoint"
+                />
+            <TextView
+                android:textColor="@color/point_select"
+                android:layout_toRightOf="@id/tomorrow_time_img"
+                android:id="@+id/tomorrow_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:textColor="@color/point_select"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/count_down"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tomorrow_count_down"
+                />
+            <TextView
+                android:textColor="@color/point_select"
+                android:id="@+id/tomorrow_count_down"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                />
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/tomorrow_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </LinearLayout>
+
+
+</com.qianfeng.yyz.zhonghuasuan.desinview.MyRefrechView2>

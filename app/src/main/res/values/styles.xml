@@ -12,4 +12,8 @@
         <item name="android:windowBackground">@mipmap/guild_1</item>
     </style>
 
+    <style name="MyActivityStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
 </resources>

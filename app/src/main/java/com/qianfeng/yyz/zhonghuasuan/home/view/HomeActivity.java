@@ -2,13 +2,13 @@ package com.qianfeng.yyz.zhonghuasuan.home.view;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 import com.qianfeng.yyz.zhonghuasuan.R;
+import com.qianfeng.yyz.zhonghuasuan.apublic.BaseActivity;
 import com.qianfeng.yyz.zhonghuasuan.mine.view.MineFragment;
 import com.qianfeng.yyz.zhonghuasuan.newest.view.NewestFragment;
 import com.qianfeng.yyz.zhonghuasuan.search.view.SearchFragmentFragment;
@@ -16,7 +16,7 @@ import com.qianfeng.yyz.zhonghuasuan.search.view.SearchFragmentFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements IHomeActivity{
+public class HomeActivity extends BaseActivity implements IHomeActivity{
     @BindView(R.id.home_container)
     RelativeLayout mHomeContainer;
     @BindView(R.id.home_bottom)
@@ -43,6 +43,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivity{
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         initContainer();
+        setSwipeBackEnable(false);
     }
 
     @Override

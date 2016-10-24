@@ -1,6 +1,10 @@
 package com.qianfeng.yyz.zhonghuasuan.home.model;
 
-import com.qianfeng.yyz.zhonghuasuan.apublic.IDataFronNetCallback;
+import android.content.Context;
+
+import com.qianfeng.yyz.zhonghuasuan.bean.GeneralDataBean;
+import com.qianfeng.yyz.zhonghuasuan.datacallback.IDataFronNetCallback;
+import com.qianfeng.yyz.zhonghuasuan.datacallback.IDataFronNetCallbackGussLike;
 import com.qianfeng.yyz.zhonghuasuan.bean.AppIndexBean;
 
 /**
@@ -13,5 +17,7 @@ public interface IHomeModel {
      */
     boolean getOSNetInformation();
     void getAppIndexDataFromNet(IDataFronNetCallback<AppIndexBean> callback);
-
+    void getAppIndexDataGussLike(IDataFronNetCallbackGussLike callback);
+    void getGeneralData(IDataFronNetCallback<GeneralDataBean> callback, Context context);
+    void saveGeneralData();
 }

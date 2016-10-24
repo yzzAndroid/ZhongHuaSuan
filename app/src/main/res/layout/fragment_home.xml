@@ -1,16 +1,18 @@
-<FrameLayout
+<RelativeLayout
+    android:paddingTop="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     tools:context="com.qianfeng.yyz.zhonghuasuan.home.view.HomeFragment">
 
     <RelativeLayout
+        android:gravity="center_vertical"
         android:visibility="visible"
         android:id="@+id/home_default_title"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="30dp">
 
         <ImageView
             android:layout_centerVertical="true"
@@ -43,15 +45,68 @@
             />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/home_title_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/home_title_recommend_word"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:text="@string/recommend_text"
+            />
+        <RelativeLayout
+            android:layout_toRightOf="@id/home_title_recommend_word"
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/recommend_rect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/recommend_default_f"
+                android:layout_centerVertical="true"
+                android:id="@+id/home_recommend_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/point_select"
+                />
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/home_guess"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/home_recommend_text"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:id="@+id/home_pullListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:ptrAnimationStyle="flip"
         >
-
     </com.handmark.pulltorefresh.library.PullToRefreshListView>
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/home_top"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/top"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="100dp"
+        />
+</RelativeLayout>

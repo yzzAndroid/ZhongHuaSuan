@@ -1,14 +1,159 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.qianfeng.yyz.zhonghuasuan.search.view.SearchFragmentFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".search.view.SearchFragmentFragment">
+    <LinearLayout
+        android:id="@+id/search_head"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+
+    <RelativeLayout
+        android:background="@drawable/search_search_view_bg"
+        android:id="@+id/search_rl_search"
+        android:layout_weight="9"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/search_icon"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/search"
+            />
+
+        <EditText
+            android:layout_toRightOf="@id/search_icon"
+            android:background="@drawable/search_search_view_bg"
+            android:id="@+id/search_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:baselineAligned="@null"
+            android:layout_marginRight="10dp"
+            android:hint="搜索商品"
+            android:gravity="center_vertical"
+            >
+        </EditText>
+
+    </RelativeLayout>
+        <TextView
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:id="@+id/search_tv_search"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="@string/search_tv_search"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <!--listvie-->
+    <ListView
+        android:id="@+id/search_lv"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/search_hot_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/hot_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/search_tv_search_query" />
+    </LinearLayout>
+
+
+        <com.qianfeng.yyz.zhonghuasuan.apublic.MyLinerLayout
+            android:orientation="vertical"
+            android:id="@+id/mysearch_net"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.qianfeng.yyz.zhonghuasuan.apublic.MyLinerLayout>
+
+    <LinearLayout
+        android:id="@+id/search_ll_recent_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/recent_search" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/search_tv_recent_query" />
+    </LinearLayout>
+
+
+
+        <com.qianfeng.yyz.zhonghuasuan.apublic.MyLinerLayout
+            android:orientation="vertical"
+            android:id="@+id/mysearch_native"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.qianfeng.yyz.zhonghuasuan.apublic.MyLinerLayout>
+
+    <LinearLayout
+        android:id="@+id/search_ll_clear_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/clear_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/search_tv_clear_history" />
+    </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

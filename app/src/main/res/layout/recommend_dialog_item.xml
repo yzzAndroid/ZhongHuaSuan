@@ -1,75 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/transparent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">]
+    android:id="@+id/recommend_dialog_item_root"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/recommend_father"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/recommend_dialog"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
 
-    <TextView
-        android:textColor="@color/point_select"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/recommend_dialog_f"
-        android:text="@string/recommend_default_f"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/point_select"
-        />
-    <TextView
-        android:text="@string/recommend_l"
-        android:textColor="@color/point_select"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/recommend_dialog_l"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/point_select"
-        />
-    <TextView
-        android:text="@string/recommend_m"
-        android:textColor="@color/point_select"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/recommend_dialog_m"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/point_select"
-        />
-    <TextView
-        android:text="@string/recommend_like"
-        android:textColor="@color/point_select"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/recommend_dialog_like"
-        />
+        <TextView
+            android:id="@+id/recommend_dialog_f"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/recommend_default_f"
+            android:textColor="@color/point_select" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/point_select" />
+
+        <TextView
+            android:id="@+id/recommend_dialog_l"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/recommend_l"
+            android:textColor="@color/point_select" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/point_select" />
+
+        <TextView
+            android:id="@+id/recommend_dialog_m"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/recommend_m"
+            android:textColor="@color/point_select" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/point_select" />
+
+        <TextView
+            android:id="@+id/recommend_dialog_like"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/recommend_like"
+            android:textColor="@color/point_select" />
+
 
     </LinearLayout>
 
     <TextView
-        android:background="@drawable/recommend_dialog"
-        android:layout_marginTop="10dp"
+        android:id="@+id/recommend_dialog_cancel"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="@string/cancel"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/recommend_dialog"
         android:gravity="center"
-        />
+        android:text="@string/cancel" />
+
 
 </LinearLayout>

@@ -1,14 +1,133 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.qianfeng.yyz.zhonghuasuan.newest.view.NewestFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/newest_tab"
+        android:background="@color/newest_tab_bg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="40dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/count_down_bg"
+        >
+    </android.support.design.widget.TabLayout>
+
+    <LinearLayout
+        android:id="@+id/sort_layout"
+        android:background="@color/count_down_bg"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:textColor="@color/point_select"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_default"
+            android:id="@+id/eight_sort_default"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_newest"
+            android:id="@+id/eight_sort_newest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_hotest"
+            android:id="@+id/eight_sort_hotest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <LinearLayout
+            android:id="@+id/eight_sort_priceLayout"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sort_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/sort_price"
+                />
+
+            <ImageView
+                android:id="@+id/sort_price_img"
+                android:layout_marginLeft="2dp"
+                android:scaleType="centerCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/search_price"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sort_count_layout"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/sort_count"
+                android:id="@+id/eight_sort_count"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/sort_count_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/new_triangle"
+                android:scaleType="centerCrop"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <GridView
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:numColumns="4"
+        android:id="@+id/sort_count_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </GridView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/newest_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qianfeng.yyz.zhonghuasuan.home.view.EightGoodsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:onClick="back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/head_icon_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/home" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/eight_title"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="17sp"
+            />
+        <TextView
+            android:onClick="search"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:text="@string/search"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/sort_layout"
+        android:background="@color/count_down_bg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:textColor="@color/point_select"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_default"
+            android:id="@+id/eight_sort_default"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_newest"
+            android:id="@+id/eight_sort_newest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_hotest"
+            android:id="@+id/eight_sort_hotest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <LinearLayout
+            android:id="@+id/eight_sort_priceLayout"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sort_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/sort_price"
+                />
+
+            <ImageView
+                android:id="@+id/sort_price_img"
+                android:layout_marginLeft="2dp"
+                android:scaleType="centerCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/search_price"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sort_count_layout"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/sort_count"
+            android:id="@+id/eight_sort_count"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/sort_count_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/new_triangle"
+                android:scaleType="centerCrop"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridView
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:numColumns="4"
+        android:id="@+id/sort_count_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </GridView>
+
+<com.handmark.pulltorefresh.library.PullToRefreshGridView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/eight_pull_giv"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    ptr:ptrAnimationStyle="flip"
+    >
+
+</com.handmark.pulltorefresh.library.PullToRefreshGridView>
+
+</LinearLayout>

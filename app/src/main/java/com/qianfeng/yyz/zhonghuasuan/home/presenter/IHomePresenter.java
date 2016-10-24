@@ -11,4 +11,6 @@ public interface IHomePresenter {
     void enterHome(IHomeFragment fragment, Context context);
     void guessLikelLoading();
     boolean checkNet();
+    void refresh();
+    void requestGeneralData(Context context);
 }
