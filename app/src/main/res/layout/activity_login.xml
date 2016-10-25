@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qianfeng.yyz.zhonghuasuan.login.view.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/bg_login"
+            android:scaleType="centerCrop"
+            />
+
+
+        <ImageView
+            android:onClick="back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back_icon"
+            android:layout_margin="20dp"
+            />
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/login_number"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textColorHint="@color/default_color"
+        android:hint="@string/login_number"
+        />
+    <TextView
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/default_color"
+        />
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <EditText
+            android:id="@+id/login_psw"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            android:textColorHint="@color/default_color"
+            android:hint="@string/login_psw"
+            />
+
+        <CheckBox
+            android:onClick="psw_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/psw_switch"
+            android:button="@null"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/default_color"
+        />
+
+    <RelativeLayout
+       android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:onClick="soon_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/soon_register"
+            android:textSize="13sp"
+            />
+        <TextView
+            android:onClick="forgetPsw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forget_psw"
+            android:layout_alignParentRight="true"
+            android:textSize="13sp"
+            />
+
+    </RelativeLayout>
+
+    <Button
+        android:onClick="login"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="@string/login"
+        android:background="@drawable/home_item_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <TextView
+
+        android:onClick="threeLogin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/three_login"
+        />
+
+    <ImageView
+        android:onClick="threeLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/qq"
+        />
+</LinearLayout>

@@ -20,6 +20,12 @@ public class MyApi {
     public static final String GID = "gid";
     public static final String KEYWORD = "keyword";
     public static final String SEARCH_KEY = "search_key";
+    public static final String PASSWORD ="password";
+    public static final String ACCOUNT = "account";
+    public static final String U_NAME = "uname";
+    public static final String IS_PREMIUM = "is_premium";
+    public static final String AVATAR = "avatar";
+    public static final String SIGN = "sign";
 
     public static class Home{
 
@@ -37,5 +43,11 @@ public class MyApi {
     public class Search{
         public static final String KER_WORD = "/search/hot_keyword";
         public static final String SEARCHING = "/search/relevant_search";
+    }
+
+
+    public static class Mine{
+        public static final String LOGIN = "http://loginapp.zhonghuasuan.com/home/app_login";
+        public static final String UPDATAIMG = "http://appbusiness.zhonghuasuan.com/user_avatar/upload_avatar";
     }
 }

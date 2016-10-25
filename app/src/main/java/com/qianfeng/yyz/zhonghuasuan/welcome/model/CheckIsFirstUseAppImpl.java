@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 
+import com.qianfeng.yyz.zhonghuasuan.apublic.MyApi;
 import com.qianfeng.yyz.zhonghuasuan.apublic.MyApplication;
 
 /**
@@ -36,6 +37,13 @@ public class CheckIsFirstUseAppImpl implements ICheckIsFirstUseApp {
     public void checkLoginState(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(USER_INFO,Context.MODE_PRIVATE);
         boolean isLogin = preferences.getBoolean(USER_LOGIN,false);
-        MyApplication.getInstance().setLogin(isLogin);
+        if (isLogin){
+            MyApplication.getInstance().setLogin(isLogin);
+            MyApplication.getInstance().setUid(preferences.getString(MyApi.UID,""));
+            MyApplication.getInstance().setAvatar(preferences.getString(MyApi.AVATAR,""));
+            MyApplication.getInstance().setSign(preferences.getString(MyApi.SIGN,""));
+            MyApplication.getInstance().setUname(preferences.getString(MyApi.U_NAME,""));
+            MyApplication.getInstance().setPassword(preferences.getString(MyApi.PASSWORD,""));
+        }
     }
 }
