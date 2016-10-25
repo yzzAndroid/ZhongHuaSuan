@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qianfeng.yyz.zhonghuasuan.mine.view.MyTracesActivity">
+
+    <RelativeLayout
+        android:id="@+id/traces_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:padding="10dp"
+            android:onClick="back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/all_back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="17sp"
+            android:text="@string/traces"
+            android:textStyle="bold"
+            />
+        <CheckBox
+            android:id="@+id/trace_title_delete"
+            android:textColor="@color/default_color"
+            android:button="@null"
+            android:onClick="delete"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/delete"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+
+
+            />
+
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/traces_pullListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:ptrAnimationStyle="flip"
+        android:layout_above="@+id/traces_bottom"
+        android:layout_below="@+id/traces_title"
+        >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:id="@+id/traces_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:onClick="checkAll"
+            android:id="@+id/traces_bottom_check_all"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/all_check"
+            />
+
+
+        <TextView
+            android:onClick="deleteChecked"
+            android:layout_alignParentRight="true"
+            android:id="@+id/traces_delete_check_all"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/delete_cheecked"
+            />
+    </RelativeLayout>
+</RelativeLayout>

@@ -54,7 +54,7 @@ public class WelcomeActivity extends AppCompatActivity implements IwelcomeView{
         //进入主页
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-
+        finish();
     }
 
     @Override

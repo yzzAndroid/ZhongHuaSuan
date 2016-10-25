@@ -40,8 +40,9 @@ public class StartActivity extends AppCompatActivity implements IStartView{
             public void run() {
                 Intent intent = new Intent(StartActivity.this,WelcomeActivity.class);
                 startActivity(intent);
+                finish();
             }
-        },1000);
+        },300);
 
     }
 
@@ -64,7 +65,8 @@ public class StartActivity extends AppCompatActivity implements IStartView{
             public void run() {
                 Intent intent = new Intent(StartActivity.this,HomeActivity.class);
                 startActivity(intent);
+                finish();
             }
-        },1000);
+        },300);
     }
 }

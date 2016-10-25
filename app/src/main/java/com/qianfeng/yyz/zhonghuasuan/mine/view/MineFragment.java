@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ import com.qianfeng.yyz.zhonghuasuan.login.view.LoginActivity;
 import com.qianfeng.yyz.zhonghuasuan.mine.presenter.MinePresenter;
 import com.qianfeng.yyz.zhonghuasuan.welcome.model.CheckIsFirstUseAppImpl;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.greendao.DbUtils;
 
 import java.io.File;
 import java.util.HashMap;
@@ -48,6 +51,11 @@ public class MineFragment extends Fragment implements IMineView {
     CircleImageView head;
     @BindView(R.id.mine_head_text)
     TextView headTextView;
+    @BindView(R.id.mine_rl_collect)
+    RelativeLayout collection;
+    @BindView(R.id.mine_rl_traces)
+    RelativeLayout traces;
+
 
     private Uri imagePath;
 
@@ -97,6 +105,22 @@ public class MineFragment extends Fragment implements IMineView {
             Log.e("=======","===img=="+MyApplication.getInstance().getAvatar());
         }
         map = new HashMap<>();
+
+        //收藏
+        collection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(),CollectionActivity.class));
+            }
+        });
+        //足迹
+        traces.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getActivity().startActivity(new Intent(getActivity(),MyTracesActivity.class));
+            }
+        });
     }
 
     private void showDialog() {
